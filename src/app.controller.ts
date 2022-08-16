@@ -1,11 +1,11 @@
 import { Controller, Get } from '@nestjs/common';
-import { Users } from '../components/UsersList/gandomUsersList';
+import { UsersListService } from 'services/UsersList';
 
 @Controller('/api')
 export class AppController {
+  constructor(private usersListService: UsersListService) {}
   @Get('/getUsers')
   getUsers() {
-    const usersList = new Users(10);
-    return usersList.getUsersList();
+    return this.usersListService.getUsers();
   }
 }
