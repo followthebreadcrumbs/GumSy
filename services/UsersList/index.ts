@@ -3,8 +3,8 @@ import { Users } from './randomUsersList';
 
 @Injectable()
 export class UsersListService {
-  getUsers() {
-    const usersList = new Users(10);
+  getUsers(count: number) {
+    const usersList = new Users(Number(count));
     return usersList.getUsersList();
   }
 }
